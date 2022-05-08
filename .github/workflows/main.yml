@@ -11,8 +11,8 @@ jobs:
 
       - name: Load Config Files
         run: |
-          echo "${{secrets.GAE_CONFIG}}" | base64 --decode > ../../actions/config/gae.env 
-          echo "${{secrets.GCP_SA_KEY}}" > ../../actions/config/airy-adapter-349208-4c7f09b5f7c6.json
+          echo "${{secrets.GAE_CONFIG}}" | base64 --decode > actions/config/gae.env 
+          echo "${{secrets.GCP_SA_KEY}}" > actions/config/airy-adapter-349208-4c7f09b5f7c6.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
