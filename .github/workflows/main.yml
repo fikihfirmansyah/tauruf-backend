@@ -11,7 +11,7 @@ jobs:
 
       - name: Load Config Files
         run: |
-          echo "${{secrets.GAE_CONFIG}}" | base64 --decode > config/gae.env 
+          echo "${{secrets.GAE_CONFIG}}" | base64 --decode > actions/config/gae.env 
           echo "${{secrets.GCP_SA_KEY}}" > config/booklovers-v1-5606eddf4394.json
 
       - name: Setup Node.js

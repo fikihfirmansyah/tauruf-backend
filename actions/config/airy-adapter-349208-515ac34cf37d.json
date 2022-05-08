@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "airy-adapter-349208",
+  "private_key_id": "515ac34cf37d65b62808bf74996a25234d726597",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCwOBNz/Nq/FnRA\n57/sloiqZjkZyNM9BW/lI+pp4c1GTcmKfvqu4zWPf/KsBoXCxTNoUVoGwfQcjOvD\nHk4orrYhzaoDaHiXDTorj2ypkCLUU/VmvXMFN+Xje0w/UuAzLAqYC1jlB60Ldh+X\nIkxXOoq86BtChKfltIobI6eHrtvROg2Kc5pe3xVOW+SK/8wHeIEfNna2BEDq08EW\nl2qPoDknMdfz6nT+X9nkReh45XOHqeaMmrh41mOKc/E9UK+HAha3hlOlxHqZtMUf\nXP0SF/MqEYKV/Pd1a7YkNICa1PgAnmC4MN0HMbHa3ZFR9Sm9ITth6eAiDtj9iIs9\nn3OS7YvNAgMBAAECggEACzutNHHu48rOTauNlsr1xUmk5C7iwFC4vvZDes0Tunfk\n8WOCHrnfGoRWd37RnLEuGL1ELDVwQThTzb6rJCQW+h/+cXSBvhHwHldoiYU6+HwC\n+FylQ1+P06jIGyqbnhzK7sGdFg8ficvVhwXUW08hCZpmJR8IW400Vzc2S7ZAJEh1\nqdiutW2+8H+RtrwuiROD9vC/CtaXRUxpIsz8MgeMirUiDAXCLYsorxNKsqNWWS5y\nss9Kpz5GH/ScSb6njQOv8dgWN1hhztr5PvmpJnjF0nM1ZDxMHD3w9bvmz1nftmrP\nVMScW1O5BG5y0UjAUlZjAhNGJl9dJNI6RoyW6qs04QKBgQDZT5LU58WXjJkQHNDi\nO2pussfGYGqloPHbmz0q9sBI06CEEyfVNWri1wFTtPQzA8uT0jxLQNe68QBQZoYc\nipN1ml3RG4uW7p8IT4UGEAqe+eo36zcBpTAaZdEVv2lZGMUR06Xi3ZYlP7ZLQmqp\nRqsmfwT1tHezMakgBMKPF6E2ZQKBgQDPl6cIno4psEk4avZbeQpPogxRYOsJ5w9m\nRpWlzvAUyqvv/CSi+S7BxCoaNpeAK/zOZGAs4nmpi553nix6iTGuMeOHAddtWI54\nSRk37zQZl6vDtIkcM6nwCqW6XD8g+0MxIyw7wSTP0Z8jmQ4sCU0/xe7j6dTIRkNw\nfDx/tDfVSQKBgQCgLpuY/E8V6rlYuyTt3cYSWw4PGDsEY6JjsgZgiQorpHMJZ+VQ\nr9Nd6gY8YYIvqHiDOdDf16gtUEBfA3OPzkXrxiGpZZh7ZOEtCxCO63wouyb+mQ8u\n00il7K82TKWm2y9IeK4qkBOA2XnR998Pb9vwwGgzhRdGqzBzPY78UvquUQKBgA5f\nCFA/ccYPDzKZrQ5uFbmnlUS4+eyIk3dYIZoF9nbqBPcrNHoX2BXP974y01ArO2gq\naMISt6t2H/VV/OxKvSa7C25YQUqvm8VWAinuJGQ1LM3ynJ9YMEaO5iQ9qJ0m5+Lp\n9XD5kQvWDjdPrDx+NFva3wvmLzXiL18FKscIeekJAoGAfwD6KtR0lPmkPg4gaCX8\n5qlKPwD4hbmgGdmQUNVxuT1+UNVXTjtpyictvVkcYx6tL20P5B/5Uid1Ucq2REKf\n0AYWrBlr764HnQqRILU8oKiQx0M9iXBAOzN3uhuV8HvbzcOrne+A6ykJ3Ip2qBlK\nM8752ItdO5evi/cmEw6QgGk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tauruf-actions-app-engine@airy-adapter-349208.iam.gserviceaccount.com",
+  "client_id": "111036108905416865140",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tauruf-actions-app-engine%40airy-adapter-349208.iam.gserviceaccount.com"
+}
