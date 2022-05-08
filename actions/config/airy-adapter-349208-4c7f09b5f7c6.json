@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "airy-adapter-349208",
+  "private_key_id": "4c7f09b5f7c60e78ee3c753ba189bf53a685f20e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1CWcaYBMABA2Y\nX+CH/nvyukTgYFc2ONIQR9nbcaGJnBp8ELhkULnT5W3zblZDJMDmdq9jW9xYsKvv\nfedy//hQQb2s7xi21Uveft3TuX8A+Tu6jXESSLimcRMEKG0RTNtyKYCyWXOohiAE\nmjsXK0VNeSXwmggbAWBEw04A5mKHx/UlMAcRt2D0m1gTFOu9Te9qs6E53ldkmACs\nb5CvAbAmwojbtZTe2r9d8Obtbs5JzoPTFsylGqox3ofo9tz9clN+j+MTMh1vwreU\nTK3Lw5kBX6kcrWm1WWSyXILIUOJFgHQ5e9Tz7kEqgbFLxX+0QwB9dIOnbc5bqhZT\n5FZj1TxBAgMBAAECggEATbSFfrqyLRWQSFEO7RB8X0k4ex6fEHT/JWHRzvFNJuXM\nMGh03QoRWTRnJ0+60wMZkVJsIbeyMpdSlW9zQtc/3CL7qRjPgNq4v/2wdUpvixlv\nW7mOSQzRxQ9P3D8F4aEdqDjMNsFSdYlsgM06g81c584STN2wkPbcPWefOZ+ptyGP\nOxS5qEdsT2qlLQleIL8Ul3efm5a8RAiVF3WdhkWXVGWP4qgBaAKo6CVOCJVwxv0G\ntsbj073R70lVkkqbVjV7kPHk4hvNp4XcbyVpC/jT1pryJU71hXOOt9GLj6BbgbHL\nnZq6huSrD8Fet5dB/5ZH/oCwAHHUjneyDEAhCuQtCQKBgQD/nnhN0D9gMPvOS3eW\nPRBmm87eDAL1iGUYIvtVhUnwfpG7FepFS+xh7xuRIUG5Y2Ar0p+1Nziic0piK8td\nyDr3IWF0db8sAWlKtNF3aCeVsyoM7RJrOf22bkugWNSfd9lnUUrjzsUNNv45dbym\nFG/E3jnE7/LLgN05ppIsLSQFFwKBgQC1TnnxKSRhmuqmMdmfvh0NIEBEsBoIOvuo\nTfKl0rSxyaw5P7BMt1njrX+Ic9m1LRJbiN5gvOpxMTLIBjpaO9osMx+QMjzVQv+a\nS0UwhAbkYwZDDWUzss6xT6hg+lMwT3hMPAXXHvGGngS/Ow0vi2acpT90Wr8ztDrG\nQO5fxUBQZwKBgFgxAYq/RY5XeBkVun2wNb9hFD9R35d85nwsXZCE+xypXngwuHIO\nHtEvINCyq61dlumnsohgM/8ATfKO74w8r/NhpfD7SujQ19X5iqdq3PVuKhzpkkhC\nasGNTjRVUY5vWCeoSXFNfnjvt0h10Y9vT5yZm07SBm+l1y2zxYzOSjYjAoGAYGUk\n+E9DhJF1CH+gkQnnMD9hbCOk85NIkac/x2JLp+rtolJ2TZN+O0rXb5kIuwcHp5sR\ngKVwkFX0Bd0p0SfZS36y3VuYdFp2w3YZhz3q3Cq5/ZR1phL/Sc5sW4M8D4dxEjcn\nc8SD7Wq+Y13mGM0o9Uf2gMputfKw/Q8wrcKV+ykCgYEA+j8953cwdEeL+/VXcVjE\nlSvt0M97b4UVz9Qecgun/SydB/e2IU8GQyojHHmr3q2zhAyG1qwwlC8w1JRi1bj5\nSxPOsX1N9uoR54akjY4urpQZDOJw6kQMzD0NhinUvzGOXu4spnUD/CHsqPqFn1QS\nBYo/mTf+Ve8tP8DSmx8QviI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "github-ci@airy-adapter-349208.iam.gserviceaccount.com",
+  "client_id": "108372614102156696687",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/github-ci%40airy-adapter-349208.iam.gserviceaccount.com"
+}
