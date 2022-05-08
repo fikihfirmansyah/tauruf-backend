@@ -1,37 +1,157 @@
-name: taaruf-backend
+name: deploy-appengine Integration
+
 on:
   push:
-    branches: [main]
+    branches:
+      - "main"
+  pull_request:
+
 jobs:
-  Deploy_to_GAE:
+  working-directory:
+    if: ${{ github.event_name == 'push' || github.repository == github.event.pull_request.head.repo.full_name && github.actor != 'dependabot[bot]' }}
+    name: with working directory
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Load Config Files
-        run: |
-          echo "${{secrets.GAE_CONFIG}}" | base64 --decode > actions/config/gae.env 
-          echo "${{secrets.GCP_SA_KEY}}" > actions/config/airy-adapter-349208-4c7f09b5f7c6.json
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: google-github-actions/setup-gcloud@main
         with:
-          node-version: 16.x
-
-      - run: npm install
-
-      - name: Setup Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.2.0
+          project_id: ${{ secrets.APPENGINE_DEPLOY_PROJECT_ID }}
+          service_account_key: ${{ secrets.APPENGINE_DEPLOY_SA_KEY_JSON }}
+          export_default_credentials: true
+      - name: create app
+        run: |-
+          mkdir app
+          cat <<EOF > ${{ github.workspace }}app.yaml
+          service: "${{ github.job }}-${{ github.run_number }}"
+          runtime: "nodejs10"
+          EOF
+          cat <<EOF > ${{ github.workspace }}server.js
+          const http = require('http');
+          const server = http.createServer(function (req, res) {
+            res.writeHead(200)
+            res.end('Hello world!');
+          });
+          server.listen(process.env.PORT || 8080);
+          EOF
+      - id: build
+        name: Build dist
+        run: |-
+          npm install
+          npm run build
+      - id: deploy
+        name: Deploy to App Engine
+        uses: ./
         with:
-          project_id: ${{secrets.GCP_PROJECT}}
-          service_account_key: ${{secrets.GCP_SA_KEY}}
-
-      - name: Deploy
-        uses: google-github-actions/deploy-appengine@v0
+          project_id: ${{ secrets.APPENGINE_DEPLOY_PROJECT_ID }}
+          working_directory: app/
+          promote: false
+      - name: Test Output
+        run: |-
+          curl '${{ steps.deploy.outputs.url }}' \
+            --silent \
+            --fail \
+            --location \
+            --retry 5 \
+            --retry-connrefused \
+            --retry-delay 5 \
+            --retry-max-time 300
+      - name: Clean Up
+        if: ${{ always() }}
+        run: |-
+          gcloud app services delete "${{ github.job }}-${{ github.run_number }}" \
+            --quiet \
+            --project="${{ secrets.APPENGINE_DEPLOY_PROJECT_ID }}"
+  deliverable:
+    if: ${{ github.event_name == 'push' || github.repository == github.event.pull_request.head.repo.full_name && github.actor != 'dependabot[bot]' }}
+    name: with deliverable path
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: google-github-actions/setup-gcloud@main
         with:
-          deliverables: app.yaml
-          project_id: ${{ secrets.GCP_PROJECT }}
-          credentials: ${{ secrets.GCP_SA_KEY }}
-          promote: true
-          version: v1
+          project_id: ${{ secrets.APPENGINE_DEPLOY_PROJECT_ID }}
+          service_account_key: ${{ secrets.APPENGINE_DEPLOY_SA_KEY_JSON }}
+          export_default_credentials: true
+      - name: create app
+        run: |-
+          mkdir app
+          cat <<EOF > ${{ github.workspace }}app.yaml
+          service: "${{ github.job }}-${{ github.run_number }}"
+          runtime: "nodejs10"
+          EOF
+          cat <<EOF > ${{ github.workspace }}server.js
+          const http = require('http');
+          const server = http.createServer(function (req, res) {
+            res.writeHead(200)
+            res.end('Hello world!');
+          });
+          server.listen(process.env.PORT || 8080);
+          EOF
+      - id: build
+        name: Build dist
+        run: |-
+          npm install
+          npm run build
+      - id: deploy
+        name: Deploy to App Engine
+        uses: ./
+        with:
+          project_id: ${{ secrets.APPENGINE_DEPLOY_PROJECT_ID }}
+          deliverables: app/app.yaml
+          promote: false
+      - name: Test Output
+        run: |-
+          curl '${{ steps.deploy.outputs.url }}' \
+            --silent \
+            --fail \
+            --location \
+            --retry 5 \
+            --retry-connrefused \
+            --retry-delay 5 \
+            --retry-max-time 300
+      - name: Clean Up
+        if: ${{ always() }}
+        run: |-
+          gcloud app services delete "${{ github.job }}-${{ github.run_number }}" \
+            --quiet \
+            --project="${{ secrets.APPENGINE_DEPLOY_PROJECT_ID }}"
+  failure:
+    if: ${{ github.event_name == 'push' || github.repository == github.event.pull_request.head.repo.full_name && github.actor != 'dependabot[bot]' }}
+    name: with bad path
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: google-github-actions/setup-gcloud@main
+        with:
+          project_id: ${{ secrets.APPENGINE_DEPLOY_PROJECT_ID }}
+          service_account_key: ${{ secrets.APPENGINE_DEPLOY_SA_KEY_JSON }}
+          export_default_credentials: true
+      - id: build
+        name: Build dist
+        run: |-
+          npm install
+          npm run build
+      - id: cwd
+        uses: ./
+        continue-on-error: true
+        with:
+          project_id: ${{ secrets.APPENGINE_DEPLOY_PROJECT_ID }}
+          working_directory: this/path/doesnt/exist/
+          promote: false
+      - name: Catch failure
+        run: |-
+          if [ ${{ steps.cwd.outcome }} != 'failure' ]; then
+            exit 1
+          fi
+      - id: deliverable
+        uses: ./
+        continue-on-error: true
+        with:
+          project_id: ${{ secrets.APPENGINE_DEPLOY_PROJECT_ID }}
+          deliverables: this/path/doesnt/exist/app.yaml
+          promote: false
+      - name: Catch failure
+        run: |-
+          if [ ${{ steps.deliverable.outcome }} != 'failure' ]; then
+            exit 1
+          fi
