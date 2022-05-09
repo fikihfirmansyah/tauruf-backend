@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jest --coverage",
     "dev": "node server.js",
-    "build": "next build",
+    "build": "npm build",
     "start": "node server.js",
-    "gcp-build": "next build"
+    "gcp-build": "npm build"
   },
   "keywords": [
     "nodejs",
